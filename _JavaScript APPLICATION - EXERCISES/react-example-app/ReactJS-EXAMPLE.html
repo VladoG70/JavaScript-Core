@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ReactJS - EXAMPLE</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <script src="https://unpkg.com/react/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone"></script>
+
+</head>
+<body>
+<div id="app">A React component will be rendered here</div>
+<script type="text/babel">
+    let age = 18;
+
+    // Standart FORMAT declare class:
+    class Navigation extends React.Component {
+        render() {
+            return (
+                    <div>
+                        <a href="#">Home </a>
+                        <a href="#">Login </a>
+                        <a href="#">LogOut </a>
+                    </div>
+            )
+        }
+    }
+
+    // in ECMA6 following format:
+    let Person = React.createClass ({
+        render: function() {
+            return ( // ako niama () dava ERROR
+                    <div>
+                        <h1>I am ReactJS 1 - {this.props.name}</h1>
+                        <p><b>Age:</b> {age+20}</p>
+                        <p>Tel. {this.props.phone}</p>
+                    </div>
+            )
+        }
+    });
+
+
+    let app = <div>
+        <Navigation/>
+        <Person name="Ime" phone="088 888 888"/>
+    </div>;
+
+    // Without jQuery
+    //ReactDOM.render(app, document.getElementById('app'));
+    // WITH jQuery - return Array -> have to get [0] element from Array
+    ReactDOM.render(app, $("#app")[0]);
+
+
+</script>
+</body>
+</html>
